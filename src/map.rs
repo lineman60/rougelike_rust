@@ -1,27 +1,29 @@
 use crate::prelude::*;
+
 const NUM_TILES: usize = (SCREEN_WIDTH * SCREEN_HIGHT) as usize;
 
-#[derive(Copy,Clone, PartialEq)]
+#[derive(Copy, Clone, PartialEq)]
 pub enum TileType {
     Wall,
     Floor,
 }
 
-pub struct Map{
+pub struct Map {
     pub tiles: Vec<TileType>,
 }
-pub fn map_idx(x: i32, y: i32) -> usize{
-    ((y * SCREEN_WIDTH +x) as usize)
+
+pub fn map_idx(x: i32, y: i32) -> usize {
+    ((y * SCREEN_WIDTH + x) as usize)
 }
 
-impl Map{
-    pub fn new() -> Self{
-        Self{
+impl Map {
+    pub fn new() -> Self {
+        Self {
             tiles: vec![TileType::Floor; NUM_TILES],
         }
     }
-    pub fn render (&self, ctx: &mut BTerm){
-        for y in 0..SCREEN_HIGHT{
+    pub fn render(&self, ctx: &mut BTerm) {
+        for y in 0..SCREEN_HIGHT {
             for x in 0..SCREEN_WIDTH {
                 let idx = map_idx(x, y);
                 match self.tiles[idx] {
