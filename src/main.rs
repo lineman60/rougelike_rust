@@ -1,4 +1,5 @@
 mod map;
+mod player;
 
 mod prelude {
     pub use bracket_lib::prelude::*;
@@ -7,6 +8,7 @@ mod prelude {
     pub const SCREEN_HIGHT: i32 = 50;
 
     pub use crate::map::*;
+    pub use crate::player::*;
 }
 
 use prelude::*;
